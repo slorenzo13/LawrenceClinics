@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lawrence &amp; Clinics</string>
+    <string name="AnularCitaMedica">Annulla appuntamento</string>
+    <string name="BotonSeleccionFecha">SELEZIONA DATA</string>
+    <string name="Encuentranos">Trovaci</string>
+    <string name="EnviarMailBoton">Send</string>
+    <string name="HorariosArea">Orari disponibili</string>
+    <string name="ModificarCitaMedica">Modifica appuntamento</string>
+    <string name="NombreDoctor">Lorenzo Gallego, Sergio</string>
+    <string name="Nuevo">Sei nuovo</string>
+    <string name="SeleccionarArea">Seleziona l\'area</string>
+    <string name="SeleccionarHorarios">Seleziona una delle pianificazioni disponibili</string>
+    <string name="agendarCitas">Aggiungi appuntamento</string>
+    <string name="alergologia">Allergologia</string>
+    <string name="anularCitas">Annulla appuntamento</string>
+    <string name="botonIngresar">INSERIMENTO</string>
+    <string name="cardiologia">Cardiologia</string>
+    <string name="cita_agenciaCitas">Ti consente di aggiungere appuntamenti medici</string>
+    <string name="cita_anular">Consente di annullare gli appuntamenti medici</string>
+    <string name="citas_medicas">Appuntamenti medici</string>
+    <string name="contactarMailTitulo">CONTATTO</string>
+    <string name="dermatologia">Dermatologia</string>
+    <string name="endocrinologia">Endocrinologia</string>
+    <string name="ginecologia">Ginecologia</string>
+    <string name="hora_1">8:00 A.M. - 8:30 A.M.</string>
+    <string name="hora_2">8:30 A.M. - 9:00 A.M.</string>
+    <string name="hora_3">9:00 A.M. - 9:30 A.M.</string>
+    <string name="hora_4">9:30 A.M. - 10:00 A.M.</string>
+    <string name="hora_5">10:00 A.M. - 10:30 A.M.</string>
+    <string name="hora_6" translatable="false">10:30 A.M. - 11:00 A.M.</string>
+    <string name="info_modificar_cita">Consente di modificare gli appuntamenti medici</string>
+    <string name="intro">CENTRO APPUNTAMENTI MEDICI</string>
+    <string name="modifCitas">Modifica appuntamento</string>
+    <string name="obstetricia">Obstetricia</string>
+    <string name="opcionMenu_ayuda">Aiuto</string>
+    <string name="opcionMenu_contacto">Contatto</string>
+    <string name="pediatria">Pediatria</string>
+    <string name="registro">Registrami</string>
+    <string name="texto_encabezado_AnularCita">Inserisci il tuo numero di identificazione e indica il motivo della sua cancellazione.</string>
+    <string name="texto_encabezado_ModificarCita">Inserisci il tuo numero ID per modificare l\'appuntamento</string>
+    <string name="title_activity_maps">Mappa</string>
+    <string name="traumatologia">Traumatologia</string>
+    <string name="ubicacion">Posizione</string>
+</resources>

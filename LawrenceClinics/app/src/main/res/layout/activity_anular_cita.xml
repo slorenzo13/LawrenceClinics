@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AnularCita">
+
+    <Button
+        android:id="@+id/Boton_EnviarMotivo"
+        style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
+        android:layout_width="127dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="36dp"
+        android:text="ENVIAR MOTIVO"
+        app:layout_constraintStart_toEndOf="@+id/Boton_AnularCita"
+        app:layout_constraintTop_toBottomOf="@+id/MotivoAnularCita" />
+
+    <Button
+        android:id="@+id/Boton_AnularCita"
+        style="@android:style/Widget.DeviceDefault.Light.Button.Inset"
+        android:layout_width="112dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/AnularCitaMedica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoMotivo_AnularCita" />
+
+    <EditText
+        android:id="@+id/MotivoAnularCita"
+        android:layout_width="215dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:gravity="left"
+        android:hint="Indique el motivo..."
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toEndOf="@+id/campoMotivo_AnularCita"
+        app:layout_constraintTop_toBottomOf="@+id/textViewHorario" />
+
+    <EditText
+        android:id="@+id/Codigo_AnularCita"
+        android:layout_width="238dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Código"
+        android:inputType="number"
+        android:maxLength="4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_cancelacion" />
+
+    <ImageButton
+        android:id="@+id/BotonBusquedaCita"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toEndOf="@+id/Codigo_AnularCita"
+        app:layout_constraintTop_toBottomOf="@+id/texto_cancelacion"
+        app:srcCompat="@drawable/ic_search_black_24dp" />
+
+    <ImageView
+        android:id="@+id/imagenEmpresa_citasMedicas3"
+        android:layout_width="69dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/texto_anular_cita"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_clinica_3" />
+
+    <TextView
+        android:id="@+id/campoMotivo_AnularCita"
+        android:layout_width="83dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:text="Motivo:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoHorario_AnularCita" />
+
+    <TextView
+        android:id="@+id/textViewFecha"
+        android:layout_width="190dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toEndOf="@+id/campoFecha_AnularCita"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoctor" />
+
+    <TextView
+        android:id="@+id/campoFecha_AnularCita"
+        android:layout_width="86dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="FECHA:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CampoDoctor_AnularCita" />
+
+    <TextView
+        android:id="@+id/textViewHorario"
+        android:layout_width="190dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/campoHorario_AnularCita"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFecha" />
+
+    <TextView
+        android:id="@+id/campoHorario_AnularCita"
+        android:layout_width="94dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:text="HORARIO:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/campoFecha_AnularCita" />
+
+    <TextView
+        android:id="@+id/CampoDoctor_AnularCita"
+        android:layout_width="99dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="DOCTOR:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CampoEspecilidad_AnularCita" />
+
+    <TextView
+        android:id="@+id/textViewDoctor"
+        android:layout_width="190dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/CampoDoctor_AnularCita"
+        app:layout_constraintTop_toBottomOf="@+id/textViewEspecialidad" />
+
+    <TextView
+        android:id="@+id/texto_anular_cita"
+        android:layout_width="187dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        android:gravity="center|left"
+        android:text="@string/AnularCitaMedica"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/texto_cancelacion"
+        android:layout_width="296dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="24dp"
+        android:autoLink="web"
+        android:gravity="center"
+        android:linksClickable="true"
+        android:text="@string/texto_encabezado_AnularCita"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/texto_anular_cita"></TextView>
+
+    <TextView
+        android:id="@+id/textViewEspecialidad"
+        android:layout_width="190dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BotonBusquedaCita" />
+
+    <TextView
+        android:id="@+id/CampoEspecilidad_AnularCita"
+        android:layout_width="136dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="ESPECIALIDAD:"
+        android:textColor="@color/colorPrimary"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintEnd_toStartOf="@+id/textViewEspecialidad"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Codigo_AnularCita" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,9 +1,14 @@
 package com.example.lawrenceclinics;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,11 +16,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lawrenceclinics.bd.AutenticacionBD;
+import com.example.lawrenceclinics.bd.ManejoBD;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton desconexion;
-    private EditText NumCedula, Contrasena;
+    private TextInputEditText NumCedula, Contrasena;
     private TextView register;
+    private AutenticacionBD autenticacionBD;
     private Button ingresar;
 
     @Override
@@ -23,11 +33,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        desconexion = findViewById(R.id.BotonDesconectar);
-        NumCedula = findViewById(R.id.numeroCedula);
-        Contrasena = findViewById(R.id.ContrasenaCuenta);
+        NumCedula = (TextInputEditText)findViewById(R.id.numCedulaLogin);
+        Contrasena = (TextInputEditText)findViewById(R.id.passwordLogin);
         register = findViewById(R.id.textViewRegistrarme);
         ingresar = findViewById(R.id.BotonIngresar);
+
+        autenticacionBD = new AutenticacionBD(ManejoBD.getInstance(this));
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,44 +48,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        desconexion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
         ingresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CargaIngreso();
-                Toast.makeText(MainActivity.this, "Perfil registrado correctamente", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(MainActivity.this, AgendaCitasMedicas.class);
-                startActivity(i);
+                /*ProgressDialog barraCargaRegistro = new ProgressDialog(MainActivity.this);
+                barraCargaRegistro.setTitle("Ingresar");
+                barraCargaRegistro.setMessage("Verificando la cuenta...");
+                barraCargaRegistro.setCancelable(true);
+                barraCargaRegistro.show();
+
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            CargaIngreso();
+
+                        } catch (Exception ex) {
+                            Toast.makeText(MainActivity.this, "Lo siento, no existe esa cuenta", Toast.LENGTH_SHORT).show();
+                            ex.printStackTrace();
+                        }
+                    }
+                });*/
             }
-        });
-    }
 
-    public void CargaIngreso() {
-        ProgressDialog barraCargaRegistro = new ProgressDialog(this);
-        barraCargaRegistro.setTitle("Ingresar");
-        barraCargaRegistro.setMessage("Comprobando...");
-        barraCargaRegistro.setCancelable(true);
-        barraCargaRegistro.show();
+            public void CargaIngreso() {
+                ProgressDialog barraCargaRegistro = new ProgressDialog(MainActivity.this);
+                barraCargaRegistro.setTitle("Ingresar");
+                barraCargaRegistro.setMessage("Comprobando...");
+                barraCargaRegistro.setCancelable(false);
+                barraCargaRegistro.show();
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
+                String numeroCedula = NumCedula.getText().toString();
+                String pass = Contrasena.getText().toString();
 
-                } catch (Exception ex) {
-                    Toast.makeText(MainActivity.this, "ERROR", Toast.LENGTH_SHORT).show();
-                    ex.printStackTrace();
+                if (autenticacionBD.login(numeroCedula, pass)) {
+                    barraCargaRegistro.cancel();
+                    Toast.makeText(MainActivity.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(MainActivity.this, AgendaCitasMedicas.class);
+                    startActivity(i);
+                } else {
+                    barraCargaRegistro.cancel();
+                    Toast.makeText(MainActivity.this, "Usuario no existente", Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
 
     }
 
+    @Override
+    public void onBackPressed() {
+        SalirAplicacion();
+    }
+
+    public void SalirAplicacion() {
+        android.app.AlertDialog.Builder logout = new android.app.AlertDialog.Builder(MainActivity.this);
+        logout.setIcon(R.drawable.logo_clinica_3);
+        logout.setTitle("Cerrar la aplicación");
+        logout.setMessage("¿Desea salir de la aplicación?");
+        logout.setCancelable(false);
+        logout.setPositiveButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        logout.setNegativeButton("Sí", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        logout.show();
+    }
 }

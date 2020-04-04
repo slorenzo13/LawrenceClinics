@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Lawrence &amp; Clinics</string>
+    <string name="intro">MEDICAL APPOINTMENTS CENTER</string>
+    <string name="botonIngresar">LOG IN</string>
+    <string name="Nuevo">Are you new?</string>
+    <string name="registro">Register</string>
+    <string name="citas_medicas">Medical appointments</string>
+    <string name="agendarCitas">Add appointment</string>
+    <string name="anularCitas">Cancel appointment</string>
+    <string name="cita_agenciaCitas">Allows you to add medical appointments</string>
+    <string name="cita_anular">Allows you to cancel medical appointments</string>
+    <string name="HorariosArea">Horarios disponibles</string>
+    <string name="modifCitas">Modify appointment</string>
+    <string name="info_modificar_cita">Allows you to modify medical appointments</string>
+    <string name="ubicacion">Location</string>
+    <string name="Encuentranos">Find us!</string>
+    <string name="SeleccionarArea">Select area</string>
+    <string name="traumatologia">Traumatology</string>
+    <string name="cardiologia">"Cardiology  "</string>
+    <string name="pediatria">Pediatrics</string>
+    <string name="ginecologia">Gynecology</string>
+    <string name="obstetricia">Obstetrics</string>
+    <string name="alergologia">"  Allergology"</string>
+    <string name="dermatologia">Dermatology</string>
+    <string name="endocrinologia">Endocrinology</string>
+    <string name="SeleccionarHorarios">Select one of the available schedules</string>
+    <string name="BotonSeleccionFecha">SELECT DATE</string>
+    <string name="NombreDoctor">Lorenzo Gallego, Sergio</string>
+    <string name="hora_1">8:00 A.M. - 8:30 A.M.</string>
+    <string name="hora_2">8:30 A.M. - 9:00 A.M.</string>
+    <string name="hora_3">9:00 A.M. - 9:30 A.M.</string>
+    <string name="hora_4">9:30 A.M. - 10:00 A.M.</string>
+    <string name="hora_5">10:00 A.M. - 10:30 A.M.</string>
+    <string name="hora_6">10:30 A.M. - 11:00 A.M.</string>
+    <string name="opcionMenu_ayuda">Help</string>
+    <string name="opcionMenu_contacto">Contact</string>
+    <string name="contactarMailTitulo">CONTACT</string>
+    <string name="EnviarMailBoton">Send</string>
+    <string name="AnularCitaMedica">Cancel appointment</string>
+    <string name="texto_encabezado_AnularCita">Please enter your identification number and indicate the reason for its cancellation.</string>
+    <string name="texto_encabezado_ModificarCita">Please enter your ID number to modify the appointment</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ModificarCitaMedica">Edit appointment</string>
+</resources>

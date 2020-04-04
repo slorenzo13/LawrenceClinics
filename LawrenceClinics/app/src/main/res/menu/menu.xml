@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AgendaCitasMedicas">
+    <item
+        android:id="@+id/opcion_desconexion"
+        android:icon="@drawable/icono_desconexion"
+        android:title="opcion_desconexion"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/opcion_contacto"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="@string/opcionMenu_contacto"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/opcion_ayuda"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="@string/opcionMenu_ayuda"
+        app:showAsAction="ifRoom" />
+</menu>

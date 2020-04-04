@@ -2,63 +2,74 @@ package com.example.lawrenceclinics;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.Group;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
-public class AgregarCita extends AppCompatActivity {
+import com.example.lawrenceclinics.api.ApiClinica;
+import com.example.lawrenceclinics.api.ServicioRetrofit;
+import com.example.lawrenceclinics.api.respuestas.DatosEspecialidad;
+import com.example.lawrenceclinics.api.respuestas.Especialidades;
 
-    private ConstraintLayout consLayoutTraumatologia, consLayoutCardiologia, consLayoutPediatria, consLayoutGinecologia, consLayoutObstetricia;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class AgregarCita extends AppCompatActivity implements AreaMedicaAdapter.Listener {
+
+    private RecyclerView especialidades;
+    private ApiClinica apiClinica;
+    private Group contenidoGp;
+    private ProgressBar cargando;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_cita);
 
-        consLayoutTraumatologia = findViewById(R.id.seccionTraumatologia);
-        consLayoutCardiologia = findViewById(R.id.seccionCardiologia);
-        consLayoutPediatria = findViewById(R.id.seccionPediatria);
-        consLayoutGinecologia = findViewById(R.id.seccionGinecologia);
-        consLayoutObstetricia = findViewById(R.id.seccionObstetricia);
+        especialidades = findViewById(R.id.especialidadesRv);
+        especialidades.setLayoutManager(new LinearLayoutManager(this));
 
-        consLayoutTraumatologia.setOnClickListener(new View.OnClickListener() {
+        contenidoGp = findViewById(R.id.contenidoGp);
+        cargando = findViewById(R.id.cargandoPb);
+
+        apiClinica = ServicioRetrofit.generarApi();
+
+        apiClinica.especialidades().enqueue(new Callback<Especialidades>() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AgregarCita.this, HorariosDisponibles.class);
-                startActivity(intent);
+            public void onResponse(Call<Especialidades> call, Response<Especialidades> response) {
+                if(response.isSuccessful()) {
+                    Especialidades respuesta = response.body();
+                    AreaMedicaAdapter adapter = new AreaMedicaAdapter(respuesta.getDatos());
+                    especialidades.setAdapter(adapter);
+
+                    cargando.setVisibility(View.GONE);
+                    contenidoGp.setVisibility(View.VISIBLE);
+                }
+                else {
+                    Toast.makeText(AgregarCita.this, "Ha habido un error a la hora de sacar la lista", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Especialidades> call, Throwable t) {
+
             }
         });
 
-        consLayoutCardiologia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AgregarCita.this, HorariosDisponibles.class);
-                startActivity(i);
-            }
-        });
+    }
 
-        consLayoutPediatria.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inte = new Intent(AgregarCita.this, HorariosDisponibles.class);
-                startActivity(inte);
-            }
-        });
-
-        consLayoutGinecologia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inten = new Intent(AgregarCita.this, HorariosDisponibles.class);
-                startActivity(inten);
-            }
-        });
-
-        consLayoutObstetricia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intento = new Intent(AgregarCita.this, HorariosDisponibles.class);
-                startActivity(intento);
-            }
-        });
+    @Override
+    public void onAreaMedicaClick(DatosEspecialidad especialidad) {
+        Intent intentoEndocrinologia = new Intent(AgregarCita.this, HorariosDisponibles.class);
+        intentoEndocrinologia.putExtra(HorariosDisponibles.ESPECIALIDAD,especialidad.getIdArea());
+        startActivity(intentoEndocrinologia);
     }
 }

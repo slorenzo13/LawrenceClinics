@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "741717644015",
+    "firebase_url": "https://lawrence-clinics.firebaseio.com",
+    "project_id": "lawrence-clinics",
+    "storage_bucket": "lawrence-clinics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741717644015:android:889533a9ebc1a1ba6e411a",
+        "android_client_info": {
+          "package_name": "com.example.lawrenceclinics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741717644015-onrkhsvh13rd274ep1n7ak6ovurbkj51.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA85aWIDfg44_9299UthREK77zkPNof-wM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741717644015-onrkhsvh13rd274ep1n7ak6ovurbkj51.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -5,4 +5,9 @@
     <color name="colorAccent">#D81B60</color>
     <color name="grisClaro">#edf2f2</color>
     <color name="negro">#000000</color>
+
+    <color name="green">#d6ffe7</color>
+
+    <color name="mtr1_textinput" xmlns:tools="http://schemas.android.com/tools" tools:override="true">#D81B60</color>
+
 </resources>

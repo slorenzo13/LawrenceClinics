@@ -1,7 +1,7 @@
 package com.example.lawrenceclinics;
 
 import android.app.DatePickerDialog;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
@@ -18,9 +18,9 @@ public class Calendario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calendario);
+        //setContentView(R.layout.activity_calendario);
 
-        txtv = findViewById(R.id.textViewCalendario);
+        //txtv = findViewById(R.id.textViewCalendario);
         calendario = Calendar.getInstance();
 
         day = calendario.get(Calendar.DAY_OF_MONTH);

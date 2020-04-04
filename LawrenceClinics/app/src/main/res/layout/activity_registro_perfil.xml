@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,148 +7,24 @@
     android:background="@android:color/background_light"
     tools:context=".registro_perfil">
 
-    <ImageView
-        android:id="@+id/iconomail_registro"
-        android:layout_width="54dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="20dp"
-        android:background="@android:color/background_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icononombre_registro"
-        app:srcCompat="@drawable/logo_email_2" />
-
-    <ImageView
-        android:id="@+id/iconotelefono_registro"
-        android:layout_width="56dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/background_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconomail_registro"
-        app:srcCompat="@drawable/icono_telefono_2" />
-
-    <ImageView
-        android:id="@+id/icononombre_registro"
-        android:layout_width="58dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/numeroCedula"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iconoCedula_registro"
-        app:srcCompat="@drawable/icono_persona_2" />
-
-    <ImageView
-        android:id="@+id/iconoCedula_registro"
-        android:layout_width="61dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintEnd_toStartOf="@+id/numeroCedula"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8"
-        app:srcCompat="@drawable/logo_cedula_2" />
-
-    <EditText
-        android:id="@+id/telefono_registro"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:ems="10"
-        android:hint="Teléfono"
-        android:inputType="number|text|phone"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/iconomail_registro"
-        app:layout_constraintTop_toBottomOf="@+id/email_registro" />
-
-    <EditText
-        android:id="@+id/email_registro"
-        android:layout_width="160dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:ems="10"
-        android:hint="Correo electrónico"
-        android:inputType="textEmailAddress"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/iconomail_registro"
-        app:layout_constraintTop_toBottomOf="@+id/nombre_registro" />
-
-    <EditText
-        android:id="@+id/nombre_registro"
-        android:layout_width="159dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:ems="10"
-        android:hint="Nombre completo"
-        android:inputType="text"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/icononombre_registro"
-        app:layout_constraintTop_toBottomOf="@+id/cedula_registro" />
-
-    <EditText
-        android:id="@+id/cedula_registro"
-        android:layout_width="161dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginRight="68dp"
-        android:ems="10"
-        android:hint="Número cédula"
-        android:inputType="number"
-        android:textColor="@color/colorPrimaryDark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/IconoCedula"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
-
     <Button
         android:id="@+id/BotonRegistrar"
-        android:layout_width="219dp"
-        android:layout_height="50dp"
+        style="@android:style/Widget.DeviceDefault.Light.Button.Toggle"
+        android:layout_width="168dp"
+        android:layout_height="56dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="REGISTRAR"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/telefono_registro" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
+        app:layout_constraintVertical_bias="0.411" />
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout8"
         android:layout_width="395dp"
         android:layout_height="188dp"
@@ -160,24 +36,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/nombre_clinica2"
-            android:layout_width="302dp"
-            android:layout_height="73dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:gravity="center"
-            android:text="@string/nombreClinica"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp"
-            app:fontFamily="sans-serif-smallcaps"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <ImageView
             android:id="@+id/imagenEmpresa_registro"
             android:layout_width="207dp"
@@ -187,9 +45,106 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.37"
+            app:layout_constraintHorizontal_bias="0.258"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nombre_clinica2"
             app:srcCompat="@drawable/logo_clinica_3" />
-    </android.support.constraint.ConstraintLayout>
-</android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/nombre_clinica2"
+            android:layout_width="302dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:gravity="center"
+            android:text="@string/intro"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="303dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="20dp"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/campoNumCedula_Registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Número cédula"
+            android:inputType="number"
+            android:maxLength="7" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout7"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="301dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/campoNombreCompleto_Registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre completo"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout8"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="305dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/campoMail_Registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:inputType="textWebEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout9"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="305dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        app:boxStrokeColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/campoPassword_Registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
