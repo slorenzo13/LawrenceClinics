@@ -53,7 +53,7 @@ public class AgregarCita extends AppCompatActivity implements AreaMedicaAdapter.
                     contenidoGp.setVisibility(View.VISIBLE);
                 }
                 else {
-                    Toast.makeText(AgregarCita.this, "Ha habido un error a la hora de sacar la lista", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AgregarCita.this, "Ha habido un error a la hora de sacar la lista ", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
