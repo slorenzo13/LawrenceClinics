@@ -1,6 +1,8 @@
 
 package com.example.lawrenceclinics.api.respuestas;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -40,5 +42,11 @@ public class DatosDoctorEspecialidad {
 
     public void setIdArea(String idArea) {
         this.idArea = idArea;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return nombreDoctor;
     }
 }

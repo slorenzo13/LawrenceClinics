@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Lawrence &amp; Clinics</string>
+    <string name="app_name" translatable="false">Lawrence &amp; Clinics</string>
     <string name="intro">CENTRO DE CITAS MÉDICAS</string>
     <string name="botonIngresar">INGRESAR</string>
     <string name="Nuevo">¿Eres nuevo?</string>

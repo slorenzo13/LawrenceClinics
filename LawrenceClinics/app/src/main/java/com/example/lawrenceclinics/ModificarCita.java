@@ -49,7 +49,7 @@ public class ModificarCita extends AppCompatActivity {
 
         introducirNumCedula_Modificar = findViewById(R.id.codigo_ModificarCita);
 
-        campoEspec = findViewById(R.id.campoEspecialidad_Modificar);
+        //campoEspec = findViewById(R.id.campoEspecialidad_Modificar);
         campoDoct = findViewById(R.id.campoDoctor_Modificar);
         campoHor = findViewById(R.id.campoHorario_Modificar);
 

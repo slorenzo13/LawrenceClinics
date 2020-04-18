@@ -10,39 +10,43 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.lawrenceclinics.api.respuestas.DatosEspecialidad;
+import com.example.lawrenceclinics.api.respuestas.HorarioDisponible;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class AreaMedicaAdapter extends RecyclerView.Adapter<AreaMedicaAdapter.VH> {
+public class HorariosDisponiblesAdapter extends RecyclerView.Adapter<HorariosDisponiblesAdapter.VH> {
 
     public void setListener(Listener listener) {
         this.listener = listener;
     }
 
     interface Listener {
-        void onAreaMedicaClick(DatosEspecialidad d);
+        void onHorarioDisponibleClick(HorarioDisponible h);
     }
 
-    private List<DatosEspecialidad> items;
+    private List<HorarioDisponible> items;
     private Listener listener;
 
-    public AreaMedicaAdapter(List<DatosEspecialidad> items) {
+    public HorariosDisponiblesAdapter(List<HorarioDisponible> items) {
         this.items = items;
     }
 
     @NonNull
     @Override
     public VH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.area_medica_item,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.horario_disponible_item,parent,false);
         return new VH(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
-        DatosEspecialidad item = items.get(position);
+        HorarioDisponible item = items.get(position);
+        holder.horario.setText(item.horarioFormateado());
 
-        holder.nombreArea.setText(item.getNombreArea());
-        holder.imagen.setImageResource(DatosEspecialidad.obtenerImagen(item));
     }
 
     @Override
@@ -52,19 +56,17 @@ public class AreaMedicaAdapter extends RecyclerView.Adapter<AreaMedicaAdapter.VH
 
     public class VH extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView nombreArea;
-        private ImageView imagen;
+        private TextView horario;
 
         public VH(@NonNull View itemView) {
             super(itemView);
-            this.imagen = itemView.findViewById(R.id.areaIv);
-            this.nombreArea = itemView.findViewById(R.id.nombreAreaTv);
+            this.horario = itemView.findViewById(R.id.horarioTv);
             this.itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            listener.onAreaMedicaClick(items.get(getAdapterPosition()));
+            listener.onHorarioDisponibleClick(items.get(getAdapterPosition()));
         }
     }
 

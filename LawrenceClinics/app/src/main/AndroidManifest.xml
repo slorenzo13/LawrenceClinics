@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HorariosDisponibles"
+            android:name=".HorariosDisponiblesActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AgregarCita"

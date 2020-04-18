@@ -1,25 +1,19 @@
 package com.example.lawrenceclinics;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.text.method.HideReturnsTransformationMethod;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.lawrenceclinics.bd.AutenticacionBD;
 import com.example.lawrenceclinics.bd.ManejoBD;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        NumCedula = (TextInputEditText)findViewById(R.id.numCedulaLogin);
+        NumCedula = (TextInputEditText)findViewById(R.id.TarjetaSanitariaLogin);
         Contrasena = (TextInputEditText)findViewById(R.id.passwordLogin);
         register = findViewById(R.id.textViewRegistrarme);
         ingresar = findViewById(R.id.BotonIngresar);

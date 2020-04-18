@@ -225,33 +225,14 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout11"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="209dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.338"
-        app:layout_constraintStart_toEndOf="@+id/CampoEspecilidad_ModificarCita"
-        app:layout_constraintTop_toBottomOf="@+id/codigo_ModificarCita">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/campoEspecialidad_Modificar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Especialidad" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout13"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="209dp"
         android:layout_height="52dp"
-        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toEndOf="@+id/campoDoctor_ModificarCita2"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout11">
+        tools:layout_editor_absoluteY="262dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/campoDoctor_Modificar"

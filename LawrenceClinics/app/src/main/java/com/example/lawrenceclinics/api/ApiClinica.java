@@ -37,7 +37,7 @@ public interface ApiClinica {
     @GET("doctores_especialidad.php?token=usahjsada737837")
     Call<DoctoresEspecialidad> doctoresEspecialidad(@Query("idEspecialidad") String idEspecialidad);
 
-    @GET("horarios_disponibles.php?token=usahjsada737837")
+    @GET("horas_disponibles.php?token=usahjsada737837")
     Call<HorariosDisponibles> horariosDisponibles(@Query("idDoctor") String idDoctor, @Query("fecha") String fecha);
 
     @GET("ultima_cita.php?token=usahjsada737837")

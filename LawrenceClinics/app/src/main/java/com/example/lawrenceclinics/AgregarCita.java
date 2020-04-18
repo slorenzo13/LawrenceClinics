@@ -2,7 +2,7 @@ package com.example.lawrenceclinics;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.constraintlayout.widget.ConstraintLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Group;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -47,6 +47,7 @@ public class AgregarCita extends AppCompatActivity implements AreaMedicaAdapter.
                 if(response.isSuccessful()) {
                     Especialidades respuesta = response.body();
                     AreaMedicaAdapter adapter = new AreaMedicaAdapter(respuesta.getDatos());
+                    adapter.setListener(AgregarCita.this);
                     especialidades.setAdapter(adapter);
 
                     cargando.setVisibility(View.GONE);
@@ -68,8 +69,9 @@ public class AgregarCita extends AppCompatActivity implements AreaMedicaAdapter.
 
     @Override
     public void onAreaMedicaClick(DatosEspecialidad especialidad) {
-        Intent intentoEndocrinologia = new Intent(AgregarCita.this, HorariosDisponibles.class);
-        intentoEndocrinologia.putExtra(HorariosDisponibles.ESPECIALIDAD,especialidad.getIdArea());
-        startActivity(intentoEndocrinologia);
+        Intent intentoAreaMedica = new Intent(AgregarCita.this, HorariosDisponiblesActivity.class);
+        intentoAreaMedica.putExtra(HorariosDisponiblesActivity.ESPECIALIDAD_ID,especialidad.getIdArea());
+        intentoAreaMedica.putExtra(HorariosDisponiblesActivity.ESPECIALIDAD_NOMBRE,especialidad.getNombreArea());
+        startActivity(intentoAreaMedica);
     }
 }
