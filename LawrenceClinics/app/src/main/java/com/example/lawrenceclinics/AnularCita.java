@@ -3,6 +3,8 @@ package com.example.lawrenceclinics;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.lawrenceclinics.api.ApiClinica;
 import com.example.lawrenceclinics.api.ServicioRetrofit;
+import com.example.lawrenceclinics.api.respuestas.DatosUltimaCita;
 import com.example.lawrenceclinics.api.respuestas.UltimaCita;
 
 import java.text.ParseException;
@@ -28,9 +31,10 @@ public class AnularCita extends AppCompatActivity {
 
     private EditText CodCta, MotivoCita;
     private ImageButton BotonSearch;
-    private Button AnularCita, EnviarMotivo;
+    private Button AnularCita;
     private TextView textEspecialidad, textDoctor, textFecha, textHorario;
     private ApiClinica apiClinica;
+    private String idCita;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,15 +49,14 @@ public class AnularCita extends AppCompatActivity {
         BotonSearch = findViewById(R.id.BotonBusquedaCita);
 
         AnularCita = findViewById(R.id.Boton_AnularCita);
-        EnviarMotivo = findViewById(R.id.Boton_EnviarMotivo);
+
+        AnularCita.setEnabled(false);
 
         textEspecialidad = findViewById(R.id.textViewEspecialidad);
         textDoctor = findViewById(R.id.textViewDoctor);
         textFecha = findViewById(R.id.textViewFecha);
         textHorario = findViewById(R.id.textViewHorario);
 
-        EnviarMotivo.setEnabled(false);
-/*
         BotonSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,27 +67,27 @@ public class AnularCita extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<UltimaCita> call, Response<UltimaCita> response) {
                         UltimaCita ultimaCita = response.body();
-                        Log.d("info", ultimaCita.toString());
-                        //System.out.println(ultimaCita.toString());
-                        if(ultimaCita.isError()) {
+                        if (ultimaCita.isError()) {
+                            idCita = null;
                             Toast.makeText(com.example.lawrenceclinics.AnularCita.this, ultimaCita.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            String nombreDoctor = ultimaCita.getDatos().getNombreDoctor();
-                            String nombreArea = ultimaCita.getDatos().get();
-                            String fecha = ultimaCita.getDatos().getFecha();
+                        } else {
+                            DatosUltimaCita datosCita = ultimaCita.getDatos();
+                            String nombreArea = datosCita.getNombreArea();
+                            String fecha = datosCita.getFecha();
+                            String nombreDoctor = datosCita.getNombreDoctor();
+                            String hora = datosCita.getHora();
+                            idCita = datosCita.getIdCita();
 
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                            SimpleDateFormat diaMesAnno = new SimpleDateFormat("yyyy-MM-dd");
-                            SimpleDateFormat hora = new SimpleDateFormat("HH:mm");
+                            SimpleDateFormat formatoEsp = new SimpleDateFormat("dd-MM-yyyy");
+                            SimpleDateFormat formatoApi = new SimpleDateFormat("yyyy-MM-dd");
                             try {
-                                Date date = sdf.parse(fecha);
+                                Date date = formatoApi.parse(fecha);
 
                                 Calendar calendar = Calendar.getInstance();
                                 calendar.setTime(date);
 
-                                textFecha.setText(diaMesAnno.format(date));
-                                textHorario.setText(hora.format(date));
+                                textFecha.setText(formatoEsp.format(date));
+                                textHorario.setText(hora);
 
                             } catch (ParseException e) {
                                 e.printStackTrace();
@@ -103,42 +106,53 @@ public class AnularCita extends AppCompatActivity {
             }
         });
 
+        MotivoCita.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+                AnularCita.setEnabled(count > 0 && idCita != null);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
         AnularCita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String numCedula = CodCta.getText().toString();
-                Call<com.example.lawrenceclinics.api.respuestas.AnularCita> peticionAnular = apiClinica.cancelarCita(numCedula);
+                String motivo = MotivoCita.getText().toString();
+                Call<com.example.lawrenceclinics.api.respuestas.AnularCita> peticionAnular = apiClinica.anularCita(idCita ,motivo);
 
-                if (textEspecialidad.getText().toString().length() == 0 && textDoctor.getText().toString().length() == 0 &&
-                        textFecha.getText().toString().length() == 0 && textHorario.getText().toString().length() == 0){
-                    Toast.makeText(com.example.lawrenceclinics.AnularCita.this, "No puede cancelarse una cita vacía", Toast.LENGTH_SHORT).show();
-                }
-
-                else if(MotivoCita.getText().toString().length() == 0){
-                    Toast.makeText(com.example.lawrenceclinics.AnularCita.this, "Debe insertar un motivo para cancelar su cita", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    peticionAnular.enqueue(new Callback<com.example.lawrenceclinics.api.respuestas.AnularCita>() {
-                        @Override
-                        public void onResponse(Call<com.example.lawrenceclinics.api.respuestas.AnularCita> call, Response<com.example.lawrenceclinics.api.respuestas.AnularCita> response) {
-                            com.example.lawrenceclinics.api.respuestas.AnularCita anCita = response.body();
-                            if (anCita.isError()){
-                                Toast.makeText(com.example.lawrenceclinics.AnularCita.this, anCita.getErrorMsg(), Toast.LENGTH_SHORT).show();
-                            }
-                            else{
-
-                            }
+                peticionAnular.enqueue(new Callback<com.example.lawrenceclinics.api.respuestas.AnularCita>() {
+                    @Override
+                    public void onResponse(Call<com.example.lawrenceclinics.api.respuestas.AnularCita> call, Response<com.example.lawrenceclinics.api.respuestas.AnularCita> response) {
+                        com.example.lawrenceclinics.api.respuestas.AnularCita anCita = response.body();
+                        if (anCita.isError()) {
+                            Toast.makeText(com.example.lawrenceclinics.AnularCita.this, anCita.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(AnularCita.this, "Cita anulada con éxito", Toast.LENGTH_SHORT).show();
+                            finish();
                         }
+                    }
 
-                        @Override
-                        public void onFailure(Call<com.example.lawrenceclinics.api.respuestas.AnularCita> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<com.example.lawrenceclinics.api.respuestas.AnularCita> call, Throwable t) {
 
-                        }
-                    });
-                }
+                    }
+                });
 
-                }
-            });*/
+            }
+        });
+
 
     }
 }

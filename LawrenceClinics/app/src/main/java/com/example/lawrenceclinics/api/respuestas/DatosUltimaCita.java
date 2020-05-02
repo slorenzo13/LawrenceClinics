@@ -57,4 +57,20 @@ public class DatosUltimaCita {
     public void setIdArea(String idArea) {
         this.idArea = idArea;
     }
+
+    public String getNombreArea() {
+        return nombreArea;
+    }
+
+    public String getIdCita() {
+        return idCita;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
 }
