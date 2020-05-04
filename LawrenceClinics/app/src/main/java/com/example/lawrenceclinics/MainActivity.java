@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 import android.widget.Button;
+import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,7 @@ import com.google.android.material.textfield.TextInputEditText;
 public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText NumCedula, Contrasena;
-    private TextView register;
+    private TextView register, olvidoPassword;
     private AutenticacionBD autenticacionBD;
     private Button ingresar;
 
@@ -30,9 +31,17 @@ public class MainActivity extends AppCompatActivity {
         NumCedula = (TextInputEditText)findViewById(R.id.TarjetaSanitariaLogin);
         Contrasena = (TextInputEditText)findViewById(R.id.passwordLogin);
         register = findViewById(R.id.textViewRegistrarme);
+        olvidoPassword = findViewById(R.id.textViewOlvidoPassword);
         ingresar = findViewById(R.id.BotonIngresar);
 
         autenticacionBD = new AutenticacionBD(ManejoBD.getInstance(this));
+
+        olvidoPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "¿Estás seguro?", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         register.setOnClickListener(new View.OnClickListener() {
             @Override

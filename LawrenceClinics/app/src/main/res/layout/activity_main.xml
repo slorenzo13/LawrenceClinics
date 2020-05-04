@@ -96,7 +96,7 @@
         style="@android:style/Widget.DeviceDefault.Button.Inset"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/botonIngresar"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toTopOf="@+id/textViewEresNuevo"
@@ -139,7 +139,7 @@
         app:layout_constraintVertical_bias="0.45" />
 
     <TextView
-        android:id="@+id/textViewEresNuevo2"
+        android:id="@+id/textViewOlvidoPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -159,7 +159,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:boxStrokeColor="@color/colorPrimaryDark"
-        app:layout_constraintBottom_toTopOf="@+id/textViewEresNuevo2"
+        app:layout_constraintBottom_toTopOf="@+id/textViewOlvidoPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -179,7 +179,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/campoNumCedula_Login"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="370dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:boxStrokeColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/campoContrasena_Login"
@@ -205,6 +205,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_begin="508dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

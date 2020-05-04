@@ -9,15 +9,45 @@
     tools:context=".HorariosDisponiblesActivity">
 
 
+    <TextView
+        android:id="@+id/texto_anular_cita2"
+        android:layout_width="226dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:gravity="center|left"
+        android:text="Agregar cita"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:fontFamily="sans-serif-smallcaps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="69dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_clinica_3" />
+
     <EditText
         android:id="@+id/editTextFechaSeleccionable"
         android:layout_width="0dp"
         android:layout_height="46dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:digits=""
         android:ems="10"
         android:inputType="date"
@@ -48,9 +78,9 @@
     <Button
         android:id="@+id/Boton_SeleccionarFecha"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:text="@string/BotonSeleccionFecha"
         app:layout_constraintBottom_toBottomOf="@+id/editTextFechaSeleccionable"
         app:layout_constraintEnd_toStartOf="@+id/editTextFechaSeleccionable"
@@ -63,8 +93,8 @@
         android:id="@+id/imageView12"
         android:layout_width="57dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:background="@android:color/background_light"
         app:layout_constraintBottom_toBottomOf="@+id/selectorDoctores"
         app:layout_constraintEnd_toStartOf="@+id/selectorDoctores"
@@ -76,9 +106,9 @@
 
     <TextView
         android:id="@+id/textViewRegistrarme3"
-        android:layout_width="266dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="263dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="3dp"
         android:autoLink="web"
         android:gravity="center"
         android:linksClickable="true"
@@ -86,17 +116,16 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></TextView>
+        app:layout_constraintTop_toBottomOf="@+id/texto_anular_cita2"></TextView>
 
     <Spinner
         android:id="@+id/selectorDoctores"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:gravity="center"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -104,22 +133,15 @@
         app:layout_constraintStart_toEndOf="@+id/imageView12"
         app:layout_constraintTop_toBottomOf="@+id/textViewRegistrarme8" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="71dp"
-        android:layout_height="65dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewRegistrarme3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/textViewRegistrarme3"
-        app:layout_constraintTop_toTopOf="@+id/textViewRegistrarme3"
-        app:srcCompat="@drawable/logo_clinica_3" />
-
     <TextView
         android:id="@+id/textViewRegistrarme12"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:autoLink="web"
         android:gravity="center"
         android:linksClickable="true"
@@ -134,7 +156,12 @@
         android:id="@+id/horariosDisponiblesRv"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

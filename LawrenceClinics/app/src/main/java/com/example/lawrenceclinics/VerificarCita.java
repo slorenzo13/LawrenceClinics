@@ -109,6 +109,8 @@ public class VerificarCita extends AppCompatActivity {
                             AgregarCita datos = response.body();
                             if(!datos.isError()) {
                                 Toast.makeText(VerificarCita.this, datos.getDatos(), Toast.LENGTH_SHORT).show();
+                                Intent intentoRegresoPantallaPrincipal = new Intent(VerificarCita.this, AgendaCitasMedicas.class);
+                                startActivity(intentoRegresoPantallaPrincipal);
                             }
                             else {
                                 Toast.makeText(VerificarCita.this, datos.getErrorMsg(), Toast.LENGTH_SHORT).show();
