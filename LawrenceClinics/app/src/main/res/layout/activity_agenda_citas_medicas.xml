@@ -24,33 +24,27 @@
             android:id="@+id/imagenEmpresa_citasMedicas"
             android:layout_width="177dp"
             android:layout_height="57dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginTop="48dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nombre_clinica"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logo_clinica_3" />
 
         <TextView
             android:id="@+id/nombre_clinica"
             android:layout_width="283dp"
             android:layout_height="69dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="60dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
             android:gravity="center"
             android:text="@string/intro"
             android:textColor="@color/colorPrimary"
             android:textSize="30sp"
             app:fontFamily="sans-serif-smallcaps"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imagenEmpresa_citasMedicas"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -96,8 +90,8 @@
 
             <TextView
                 android:id="@+id/textView9"
-                android:layout_width="148dp"
-                android:layout_height="38dp"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
@@ -111,13 +105,13 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textView10"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.516"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="139dp"
+                android:layout_width="wrap_content"
                 android:layout_height="64dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
@@ -153,11 +147,11 @@
 
             <ImageView
                 android:id="@+id/imageView4"
-                android:layout_width="0dp"
+                android:layout_width="61dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="3dp"
+                android:layout_marginTop="4dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:adjustViewBounds="true"
@@ -168,12 +162,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintWidth_percent="0.3"
-                app:srcCompat="@drawable/icono_modificar" />
+                app:srcCompat="@drawable/icono_listado" />
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="154dp"
-                android:layout_height="33dp"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="12dp"
@@ -181,7 +175,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/modifCitas"
+                android:text="@string/listaCitasPendientes"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -193,7 +187,7 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="167dp"
+                android:layout_width="wrap_content"
                 android:layout_height="66dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
@@ -202,7 +196,7 @@
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="@string/info_modificar_cita"
+                android:text="Le permite ver las citas pendientes"
                 android:textColor="@color/colorPrimary"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -247,11 +241,11 @@
 
             <TextView
                 android:id="@+id/textViewAgregarCita"
-                android:layout_width="158dp"
-                android:layout_height="33dp"
+                android:layout_width="136dp"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
@@ -262,17 +256,17 @@
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textView2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.511"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="160dp"
+                android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:layout_marginTop="2dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
@@ -318,13 +312,14 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.57"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintWidth_percent="0.4"
                 app:srcCompat="@drawable/icono_cancelar" />
 
             <TextView
                 android:id="@+id/textView8"
-                android:layout_width="145dp"
+                android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
@@ -338,14 +333,13 @@
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.515"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="154dp"
-                android:layout_height="33dp"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
                 android:layout_marginTop="8dp"

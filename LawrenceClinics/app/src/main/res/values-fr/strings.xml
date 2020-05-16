@@ -16,7 +16,6 @@
     <string name="hora_6">10:30 A.M. - 11:00 A.M.</string>
     <string name="info_modificar_cita">Il vous permet de modifier les rendez-vous médicaux.</string>
     <string name="intro">CENTRE DE RENDEZ-VOUS MÉDICAL</string>
-    <string name="modifCitas">Modifier le rendez-vous</string>
     <string name="obstetricia">Obstétrique</string>
     <string name="opcionMenu_ayuda">Aide</string>
     <string name="opcionMenu_contacto">Contact</string>
@@ -42,4 +41,5 @@
     <string name="anularCitas">Annuler un rendez-vous</string>
     <string name="botonIngresar">ENTRER</string>
     <string name="cardiologia">Cardiologie</string>
+    <string name="listaCitasPendientes">"  Rendez-vous en attente"</string>
 </resources>

@@ -26,7 +26,7 @@
             android:name=".AnularCita"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".ContactoMail"
+            android:name=".ContactoMailActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".AgendarCita"

@@ -9,7 +9,6 @@
     <string name="anularCitas">Anular Cita</string>
     <string name="cita_agenciaCitas">Le permite agregar citas médicas</string>
     <string name="cita_anular">Le permite anular citas médicas</string>
-    <string name="modifCitas">Modificar Cita</string>
     <string name="info_modificar_cita">Le permite modificar citas médicas</string>
     <string name="ubicacion">Ubicación</string>
     <string name="Encuentranos">¡Encuéntranos!</string>
@@ -41,4 +40,5 @@
     <string name="texto_encabezado_AnularCita">Por favor, introduzca el número de su cédula e indíquenos el motivo de su cancelación.</string>
     <string name="texto_encabezado_ModificarCita">Por favor, introduzca el número de su cédula para poder modificar la cita</string>
     <string name="title_activity_maps">Map</string>
+    <string name="listaCitasPendientes">Citas Pendientes</string>
 </resources>

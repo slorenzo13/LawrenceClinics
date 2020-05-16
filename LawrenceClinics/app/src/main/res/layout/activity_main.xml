@@ -64,12 +64,15 @@
 
 
 
+
+
     ]]>
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,8 +82,8 @@
 
     <TextView
         android:id="@+id/nombre_clinica"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="406dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/intro"
@@ -96,12 +99,11 @@
         style="@android:style/Widget.DeviceDefault.Button.Inset"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="76dp"
         android:text="@string/botonIngresar"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toTopOf="@+id/textViewEresNuevo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.3" />
 
@@ -126,6 +128,7 @@
         android:id="@+id/textViewEresNuevo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:gravity="center"
         android:text="@string/Nuevo"
         android:textColor="@color/colorPrimary"
@@ -181,10 +184,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         app:boxStrokeColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toTopOf="@+id/campoContrasena_Login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.37"

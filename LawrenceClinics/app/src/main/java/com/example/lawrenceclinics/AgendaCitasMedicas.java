@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 public class AgendaCitasMedicas extends AppCompatActivity {
@@ -23,7 +22,7 @@ public class AgendaCitasMedicas extends AppCompatActivity {
 
         constraint1 = findViewById(R.id.ConstraintCuerpo_1);
         constraint2 = findViewById(R.id.ConstraintCuerpo_2);
-
+        constraint3 = findViewById(R.id.ConstraintCuerpo_3);
         constraint4 = findViewById(R.id.ConstraintCuerpo_4);
 
         Toast.makeText(this, "Bienvenido, gracias por entrar", Toast.LENGTH_SHORT).show();
@@ -44,7 +43,12 @@ public class AgendaCitasMedicas extends AppCompatActivity {
             }
         });
 
-
+        constraint3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //////////
+            }
+        });
 
         constraint4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +108,7 @@ public class AgendaCitasMedicas extends AppCompatActivity {
     }
 
     public void MandarMail() {
-        Intent intent = new Intent(AgendaCitasMedicas.this, ContactoMail.class);
+        Intent intent = new Intent(AgendaCitasMedicas.this, ContactoMailActivity.class);
         startActivity(intent);
     }
 

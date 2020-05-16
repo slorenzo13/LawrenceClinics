@@ -11,15 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.lawrenceclinics.api.ApiClinica;
-import com.example.lawrenceclinics.bd.AutenticacionBD;
-import com.example.lawrenceclinics.bd.ManejoBD;
-import com.example.lawrenceclinics.bd.Usuario;
-
 public class registro_perfil extends AppCompatActivity {
 
     private EditText numCedula, nomCompleto, mailRegistro, passwordRegistro;
     private Button registrarPerfil;
-    private AutenticacionBD autenticacionBD;
 
     private ApiClinica apiClinica_insertar;
 
@@ -35,8 +30,6 @@ public class registro_perfil extends AppCompatActivity {
 
         registrarPerfil = findViewById(R.id.BotonRegistrar);
 
-        autenticacionBD = new AutenticacionBD(ManejoBD.getInstance(this));
-
         registrarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,22 +39,22 @@ public class registro_perfil extends AppCompatActivity {
     }
 
     public void CargaRegistro(){
-        ProgressDialog barraCargaRegistro = new ProgressDialog(this);
+        /*ProgressDialog barraCargaRegistro = new ProgressDialog(this);
         barraCargaRegistro.setTitle("Registrar");
         barraCargaRegistro.setMessage("Comprobando...");
         barraCargaRegistro.setCancelable(true);
-        barraCargaRegistro.show();
+        barraCargaRegistro.show();*/
 
         String numeroCedula = numCedula.getText().toString();
         String mail = mailRegistro.getText().toString();
         String password = passwordRegistro.getText().toString();
         String nombre = nomCompleto.getText().toString();
 
-        if(!numeroCedula.trim().isEmpty() && !mail.trim().isEmpty() && !password.trim().isEmpty() && !nombre.trim().isEmpty()) {
+    /*    if(!numeroCedula.trim().isEmpty() && !mail.trim().isEmpty() && !password.trim().isEmpty() && !nombre.trim().isEmpty()) {
             Usuario usuario = new Usuario(numeroCedula, password, mail, nombre);
 
             Usuario usuarioConId = autenticacionBD.registrar(usuario);
-            barraCargaRegistro.cancel();
+            //barraCargaRegistro.cancel();
             if (usuarioConId == null) {
                 //Error
                 Toast.makeText(this, "Error, cedula ya existente", Toast.LENGTH_SHORT).show();
@@ -74,7 +67,7 @@ public class registro_perfil extends AppCompatActivity {
         }
         else {
             Toast.makeText(this, "Alguno(s) de los datos del formulario no han sido rellenados", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     /*private void crearRegistroUsuario(final int numCed, final String mailUs, final String passUs, final String nomUs){

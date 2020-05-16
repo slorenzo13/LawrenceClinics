@@ -31,7 +31,6 @@
     <string name="hora_6" translatable="false">10:30 A.M. - 11:00 A.M.</string>
     <string name="info_modificar_cita">Ermöglicht das Ändern von medizinischen Terminen</string>
     <string name="intro">MEDIZINISCHES TERMINZENTRUM</string>
-    <string name="modifCitas">Termin bearbeiten</string>
     <string name="obstetricia">Geburtshilfe</string>
     <string name="opcionMenu_ayuda">Hilfe</string>
     <string name="opcionMenu_contacto">Kontakt</string>
@@ -42,4 +41,5 @@
     <string name="title_activity_maps">Map</string>
     <string name="traumatologia">Traumatologie</string>
     <string name="ubicacion">Lage</string>
+    <string name="listaCitasPendientes">Ausstehende Termine</string>
 </resources>

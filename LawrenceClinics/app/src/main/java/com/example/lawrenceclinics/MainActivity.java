@@ -12,16 +12,22 @@ import android.widget.QuickContactBadge;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.lawrenceclinics.bd.AutenticacionBD;
-import com.example.lawrenceclinics.bd.ManejoBD;
+import com.example.lawrenceclinics.api.ApiClinica;
+import com.example.lawrenceclinics.api.ServicioRetrofit;
+import com.example.lawrenceclinics.api.Sesion;
+import com.example.lawrenceclinics.api.respuestas.Login;
 import com.google.android.material.textfield.TextInputEditText;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText NumCedula, Contrasena;
     private TextView register, olvidoPassword;
-    private AutenticacionBD autenticacionBD;
     private Button ingresar;
+    private ApiClinica apiClinica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         olvidoPassword = findViewById(R.id.textViewOlvidoPassword);
         ingresar = findViewById(R.id.BotonIngresar);
 
-        autenticacionBD = new AutenticacionBD(ManejoBD.getInstance(this));
+        apiClinica = ServicioRetrofit.generarApi();
 
         olvidoPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,19 +91,35 @@ public class MainActivity extends AppCompatActivity {
                 String numeroCedula = NumCedula.getText().toString();
                 String pass = Contrasena.getText().toString();
 
-                if (autenticacionBD.login(numeroCedula, pass)) {
-                    barraCargaRegistro.cancel();
-                    Toast.makeText(MainActivity.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(MainActivity.this, AgendaCitasMedicas.class);
-                    startActivity(i);
-                } else {
-                    barraCargaRegistro.cancel();
-                    Toast.makeText(MainActivity.this, "Usuario no existente", Toast.LENGTH_SHORT).show();
-                }
+                apiClinica.login(numeroCedula, pass).enqueue(new Callback<Login>() {
+                    @Override
+                    public void onResponse(Call<Login> call, Response<Login> response) {
+                        Login respuesta = response.body();
+                        if(!respuesta.isError()) {
+                            sesionIniciada(respuesta);
+                        }
+                        else {
+                            Toast.makeText(MainActivity.this, respuesta.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                        }
+                        barraCargaRegistro.dismiss();
+                    }
+
+                    @Override
+                    public void onFailure(Call<Login> call, Throwable t) {
+
+                    }
+                });
             }
 
         });
 
+    }
+
+    private void sesionIniciada(Login respuesta) {
+        Sesion.getInstance().setDatos(respuesta.getDatos().getToken(), respuesta.getDatos().getId());
+        Toast.makeText(MainActivity.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(MainActivity.this, AgendaCitasMedicas.class);
+        startActivity(i);
     }
 
     @Override

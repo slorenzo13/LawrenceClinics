@@ -31,7 +31,6 @@
     <string name="hora_6" translatable="false">10:30 A.M. - 11:00 A.M.</string>
     <string name="info_modificar_cita">Consente di modificare gli appuntamenti medici</string>
     <string name="intro">CENTRO APPUNTAMENTI MEDICI</string>
-    <string name="modifCitas">Modifica appuntamento</string>
     <string name="obstetricia">Obstetricia</string>
     <string name="opcionMenu_ayuda">Aiuto</string>
     <string name="opcionMenu_contacto">Contatto</string>
@@ -42,4 +41,5 @@
     <string name="title_activity_maps">Mappa</string>
     <string name="traumatologia">Traumatologia</string>
     <string name="ubicacion">Posizione</string>
+    <string name="listaCitasPendientes">Appuntamenti in sospeso</string>
 </resources>

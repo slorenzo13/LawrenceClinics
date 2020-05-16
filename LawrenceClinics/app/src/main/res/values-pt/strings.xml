@@ -31,7 +31,6 @@
     <string name="hora_6">10:30 A.M. - 11:00 A.M.</string>
     <string name="info_modificar_cita">Permite modificar consultas médicas</string>
     <string name="intro">CENTRO DE NOMEAÇÕES MÉDICAS</string>
-    <string name="modifCitas">Editar compromisso</string>
     <string name="obstetricia">Obstetrícia</string>
     <string name="opcionMenu_ayuda">Ajuda</string>
     <string name="opcionMenu_contacto">Contato</string>
@@ -42,4 +41,5 @@
     <string name="title_activity_maps">Mapa</string>
     <string name="traumatologia">Traumatologia</string>
     <string name="ubicacion">Localização</string>
+    <string name="listaCitasPendientes">Compromissos pendentes</string>
 </resources>

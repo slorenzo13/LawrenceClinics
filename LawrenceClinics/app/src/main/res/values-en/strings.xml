@@ -11,7 +11,6 @@
     <string name="cita_agenciaCitas">Allows you to add medical appointments</string>
     <string name="cita_anular">Allows you to cancel medical appointments</string>
     <string name="HorariosArea">Horarios disponibles</string>
-    <string name="modifCitas">Modify appointment</string>
     <string name="info_modificar_cita">Allows you to modify medical appointments</string>
     <string name="ubicacion">Location</string>
     <string name="Encuentranos">Find us!</string>
@@ -42,4 +41,5 @@
     <string name="texto_encabezado_ModificarCita">Please enter your ID number to modify the appointment</string>
     <string name="title_activity_maps">Map</string>
     <string name="ModificarCitaMedica">Edit appointment</string>
+    <string name="listaCitasPendientes">Pending Appointment</string>
 </resources>
