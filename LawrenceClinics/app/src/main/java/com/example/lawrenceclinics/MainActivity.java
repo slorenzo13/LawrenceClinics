@@ -116,9 +116,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sesionIniciada(Login respuesta) {
-        Sesion.getInstance().setDatos(respuesta.getDatos().getToken(), respuesta.getDatos().getId());
+        Sesion.getInstance().setDatos(respuesta.getDatos().getToken());
         Toast.makeText(MainActivity.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(MainActivity.this, AgendaCitasMedicas.class);
+        NumCedula.setText("");
+        Contrasena.setText("");
         startActivity(i);
     }
 

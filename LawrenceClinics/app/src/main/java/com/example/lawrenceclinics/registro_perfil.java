@@ -11,12 +11,19 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.lawrenceclinics.api.ApiClinica;
+import com.example.lawrenceclinics.api.ServicioRetrofit;
+import com.example.lawrenceclinics.api.respuestas.Registrar;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class registro_perfil extends AppCompatActivity {
 
     private EditText numCedula, nomCompleto, mailRegistro, passwordRegistro;
     private Button registrarPerfil;
 
-    private ApiClinica apiClinica_insertar;
+    private ApiClinica apiClinica;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,8 @@ public class registro_perfil extends AppCompatActivity {
 
         registrarPerfil = findViewById(R.id.BotonRegistrar);
 
+        apiClinica = ServicioRetrofit.generarApi();
+
         registrarPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,16 +48,36 @@ public class registro_perfil extends AppCompatActivity {
     }
 
     public void CargaRegistro(){
-        /*ProgressDialog barraCargaRegistro = new ProgressDialog(this);
+        ProgressDialog barraCargaRegistro = new ProgressDialog(this);
         barraCargaRegistro.setTitle("Registrar");
         barraCargaRegistro.setMessage("Comprobando...");
         barraCargaRegistro.setCancelable(true);
-        barraCargaRegistro.show();*/
+        barraCargaRegistro.show();
 
         String numeroCedula = numCedula.getText().toString();
         String mail = mailRegistro.getText().toString();
         String password = passwordRegistro.getText().toString();
         String nombre = nomCompleto.getText().toString();
+
+        apiClinica.registrar(numeroCedula, password, nombre, mail).enqueue(new Callback<Registrar>() {
+            @Override
+            public void onResponse(Call<Registrar> call, Response<Registrar> response) {
+                Registrar respuesta = response.body();
+                if(!respuesta.isError()) {
+                    barraCargaRegistro.dismiss();
+                    Toast.makeText(registro_perfil.this, "Registro completado", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                else {
+                    Toast.makeText(registro_perfil.this, respuesta.getErrorMsg(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Registrar> call, Throwable t) {
+
+            }
+        });
 
     /*    if(!numeroCedula.trim().isEmpty() && !mail.trim().isEmpty() && !password.trim().isEmpty() && !nombre.trim().isEmpty()) {
             Usuario usuario = new Usuario(numeroCedula, password, mail, nombre);

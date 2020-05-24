@@ -3,7 +3,6 @@ package com.example.lawrenceclinics.api;
 public class Sesion {
 
     private String token;
-    private String id;
 
     private static Sesion instancia;
 
@@ -17,16 +16,11 @@ public class Sesion {
         return token;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setDatos(String token, String id) {
+    public void setDatos(String token) {
         this.token = token;
-        this.id = id;
     }
 
     public boolean isIniciada() {
-        return token != null && id != null;
+        return token != null;
     }
 }

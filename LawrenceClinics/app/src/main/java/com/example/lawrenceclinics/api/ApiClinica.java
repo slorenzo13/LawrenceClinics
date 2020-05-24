@@ -6,6 +6,7 @@ import com.example.lawrenceclinics.api.respuestas.DoctoresEspecialidad;
 import com.example.lawrenceclinics.api.respuestas.Especialidades;
 import com.example.lawrenceclinics.api.respuestas.HorariosDisponibles;
 import com.example.lawrenceclinics.api.respuestas.Login;
+import com.example.lawrenceclinics.api.respuestas.Registrar;
 import com.example.lawrenceclinics.api.respuestas.UltimaCita;
 import com.example.lawrenceclinics.api.respuestas.AnularCita;
 
@@ -32,6 +33,11 @@ public interface ApiClinica {
     @POST("anular_cita.php")
     Call<AnularCita> anularCita(@Field("idCita") String idCita,
                                 @Field("motivoAnulacion") String motivo);
+
+    @FormUrlEncoded
+    @POST("registrar_usuario.php")
+    Call<Registrar> registrar(@Field("numeroCedula") String numCedula, @Field("pass") String password,
+                              @Field("nombre") String nombre, @Field("email")String email);
 
     @FormUrlEncoded
     @POST("login.php")

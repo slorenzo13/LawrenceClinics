@@ -16,7 +16,6 @@ public class TokenAuthenticator implements Interceptor {
         if(sesion.isIniciada()) {
             request = request.newBuilder()
                     .header("Authorization-Token",sesion.getToken())
-                    .header("Authorization-User",sesion.getId())
                     .method(request.method(), request.body())
                     .build();
         }
