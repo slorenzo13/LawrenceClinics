@@ -133,11 +133,6 @@ public class AgendaCitasMedicas extends AppCompatActivity {
         });
         logout.show();
     }
-
-    public void mostrarChat(){
-
-    }
-
     @Override
     public void onBackPressed() {
         desconexion();

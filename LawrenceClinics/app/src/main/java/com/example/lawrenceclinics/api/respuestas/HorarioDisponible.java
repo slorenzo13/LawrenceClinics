@@ -19,7 +19,7 @@ public class HorarioDisponible {
     @Expose
     private String hora;
 
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm");
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
 
 
 
