@@ -14,8 +14,6 @@ import com.example.lawrenceclinics.api.ApiClinica;
 import com.example.lawrenceclinics.api.ServicioRetrofit;
 import com.example.lawrenceclinics.api.respuestas.Registrar;
 
-import java.util.regex.Pattern;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,7 +34,7 @@ public class registro_perfil extends AppCompatActivity {
         setContentView(R.layout.activity_registro_perfil);
 
         numCedula = findViewById(R.id.campoNumCedula_Registro);
-        nomCompleto = findViewById(R.id.campoNombreCompleto_Registro);
+        nomCompleto = findViewById(R.id.emailRecuperacionPassword);
         mailRegistro = findViewById(R.id.campoMail_Registro);
         passwordRegistro = findViewById(R.id.campoPassword_Registro);
 

@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextInputEditText NumCedula, Contrasena;
     private TextView register, olvidoPassword;
-    private Button ingresar;
+    private Button ingresar, ingresarInvitado;
     private ApiClinica apiClinica;
 
     @Override
@@ -39,13 +39,16 @@ public class MainActivity extends AppCompatActivity {
         register = findViewById(R.id.textViewRegistrarme);
         olvidoPassword = findViewById(R.id.textViewOlvidoPassword);
         ingresar = findViewById(R.id.BotonIngresar);
+        ingresarInvitado = findViewById(R.id.botonIngresarInvitado);
 
         apiClinica = ServicioRetrofit.generarApi();
 
         olvidoPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "¿Estás seguro?", Toast.LENGTH_SHORT).show();
+                Intent intentoRestablecerPassword = new Intent(MainActivity.this, RestablecerPassword.class);
+                startActivity(intentoRestablecerPassword);
+                //Toast.makeText(MainActivity.this, "¿Estás seguro?", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -111,6 +114,14 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
 
+        });
+
+        ingresarInvitado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentoEntrarInvitado = new Intent(MainActivity.this, AgendaCitasMedicas.class);
+                startActivity(intentoEntrarInvitado);
+            }
         });
 
     }
