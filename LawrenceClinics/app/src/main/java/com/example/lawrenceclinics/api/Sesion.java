@@ -23,4 +23,8 @@ public class Sesion {
     public boolean isIniciada() {
         return token != null;
     }
+
+    public void cerrar() {
+        this.token = null;
+    }
 }

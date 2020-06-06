@@ -1,12 +1,16 @@
 package com.example.lawrenceclinics.api;
 
+import com.example.lawrenceclinics.RestablecerPassword;
 import com.example.lawrenceclinics.api.respuestas.AgregarCita;
+import com.example.lawrenceclinics.api.respuestas.CitaPendiente;
+import com.example.lawrenceclinics.api.respuestas.CitasPendientes;
 import com.example.lawrenceclinics.api.respuestas.ContactoMail;
 import com.example.lawrenceclinics.api.respuestas.DoctoresEspecialidad;
 import com.example.lawrenceclinics.api.respuestas.Especialidades;
 import com.example.lawrenceclinics.api.respuestas.HorariosDisponibles;
 import com.example.lawrenceclinics.api.respuestas.Login;
 import com.example.lawrenceclinics.api.respuestas.Registrar;
+import com.example.lawrenceclinics.api.respuestas.RestablecerPasswd;
 import com.example.lawrenceclinics.api.respuestas.UltimaCita;
 import com.example.lawrenceclinics.api.respuestas.AnularCita;
 
@@ -55,9 +59,18 @@ public interface ApiClinica {
     @GET("ultima_cita.php")
     Call<UltimaCita> ultimaCita(@Query("numeroCedula") String numeroCedula);
 
+    @GET("citas_pendientes.php")
+    Call<CitasPendientes> citasPendientes();
+
     @FormUrlEncoded
     @POST("contacto_mail.php")
     Call<ContactoMail> contactoMail(@Field("destinatario") String destinatario,
                                     @Field("asunto") String asunto,
                                     @Field("descripcion") String descripcion);
+
+    @FormUrlEncoded
+    @POST("restablecer_password.php")
+    Call<RestablecerPasswd> restablecerPasswd(@Field("email") String mail);
+
+
 }

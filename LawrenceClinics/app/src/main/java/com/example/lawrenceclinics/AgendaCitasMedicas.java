@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.lawrenceclinics.api.Sesion;
+
 public class AgendaCitasMedicas extends AppCompatActivity {
 
     private ConstraintLayout constraint1, constraint2, constraint3, constraint4;
@@ -27,29 +29,31 @@ public class AgendaCitasMedicas extends AppCompatActivity {
 
         Toast.makeText(this, "Bienvenido, gracias por entrar", Toast.LENGTH_SHORT).show();
 
-        constraint1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AgendaCitasMedicas.this, AgregarCita.class);
-                startActivity(intent);
-            }
-        });
+        if(Sesion.getInstance().isIniciada()){
+            constraint1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(AgendaCitasMedicas.this, AgregarCita.class);
+                    startActivity(intent);
+                }
+            });
 
-        constraint2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(AgendaCitasMedicas.this, AnularCita.class);
-                startActivity(i);
-            }
-        });
+            constraint2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(AgendaCitasMedicas.this, AnularCita.class);
+                    startActivity(i);
+                }
+            });
 
-        constraint3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //////////
-            }
-        });
+            constraint3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //////////
+                }
+            });
 
+        }
         constraint4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +61,7 @@ public class AgendaCitasMedicas extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     @Override
@@ -83,13 +88,14 @@ public class AgendaCitasMedicas extends AppCompatActivity {
             case R.id.opcion_desconexion:
                 desconexion();
                 break;
-
-            /*case R.id.opcion_chat:
-                mostrarChat();
-                break;*/
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        desconexion();
     }
 
     public void MostrarMensajeAyudaApp(){
@@ -129,12 +135,10 @@ public class AgendaCitasMedicas extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 finish();
+                Sesion.getInstance().cerrar();
             }
         });
         logout.show();
     }
-    @Override
-    public void onBackPressed() {
-        desconexion();
-    }
+
 }
