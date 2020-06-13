@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RestablecerPassword"></activity>
+        <activity android:name=".RegistroDoctor"></activity>
+        <activity android:name=".RestablecerPassword" />
         <activity android:name=".ListaCitasPendientes" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -29,9 +30,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ContactoMailActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".AgendarCita"
             android:screenOrientation="portrait" />
         <activity
             android:name=".VerificarCita"

@@ -45,6 +45,7 @@ public class HorariosDisponiblesAdapter extends RecyclerView.Adapter<HorariosDis
     @Override
     public void onBindViewHolder(@NonNull VH holder, int position) {
         HorarioDisponible item = items.get(position);
+        
         holder.horario.setText(item.horarioFormateado());
 
     }

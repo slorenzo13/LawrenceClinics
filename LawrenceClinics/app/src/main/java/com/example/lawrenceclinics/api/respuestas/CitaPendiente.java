@@ -56,7 +56,7 @@ public class CitaPendiente {
     @Expose
     private String idCita;
 
-    @SerializedName("area_doctor")
+    @SerializedName("nombre_area")
     @Expose
     private String areaDoctor;
 

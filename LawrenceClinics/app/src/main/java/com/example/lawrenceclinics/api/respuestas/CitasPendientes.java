@@ -1,5 +1,10 @@
 package com.example.lawrenceclinics.api.respuestas;
 
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -15,7 +20,6 @@ public class CitasPendientes {
     @SerializedName("msg_error")
     @Expose
     private String errorMsg;
-
     public  List<CitaPendiente> getDatos() {
         return datos;
     }

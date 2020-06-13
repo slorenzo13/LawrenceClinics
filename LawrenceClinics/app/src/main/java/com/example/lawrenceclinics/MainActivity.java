@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentoRestablecerPassword = new Intent(MainActivity.this, RestablecerPassword.class);
                 startActivity(intentoRestablecerPassword);
-                //Toast.makeText(MainActivity.this, "¿Estás seguro?", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -64,24 +63,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 CargaIngreso();
-                /*ProgressDialog barraCargaRegistro = new ProgressDialog(MainActivity.this);
-                barraCargaRegistro.setTitle("Ingresar");
-                barraCargaRegistro.setMessage("Verificando la cuenta...");
-                barraCargaRegistro.setCancelable(true);
-                barraCargaRegistro.show();
-
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            CargaIngreso();
-
-                        } catch (Exception ex) {
-                            Toast.makeText(MainActivity.this, "Lo siento, no existe esa cuenta", Toast.LENGTH_SHORT).show();
-                            ex.printStackTrace();
-                        }
-                    }
-                });*/
             }
 
             public void CargaIngreso() {

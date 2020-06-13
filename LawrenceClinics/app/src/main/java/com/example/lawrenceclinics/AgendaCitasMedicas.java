@@ -30,6 +30,7 @@ public class AgendaCitasMedicas extends AppCompatActivity {
         Toast.makeText(this, "Bienvenido, gracias por entrar", Toast.LENGTH_SHORT).show();
 
         if(Sesion.getInstance().isIniciada()){
+
             constraint1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -49,11 +50,47 @@ public class AgendaCitasMedicas extends AppCompatActivity {
             constraint3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //////////
+                    Intent intent = new Intent(AgendaCitasMedicas.this, ListaCitasPendientes.class);
+                    startActivity(intent);
                 }
             });
 
         }
+
+        if (!Sesion.getInstance().isIniciada()){
+
+
+            constraint1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent volverRegistro = new Intent(AgendaCitasMedicas.this, registro_perfil.class);
+                    startActivity(volverRegistro);
+                    Toast.makeText(AgendaCitasMedicas.this, "Debes registrarte para acceder a esta función", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+
+            constraint2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent volverRegistro = new Intent(AgendaCitasMedicas.this, registro_perfil.class);
+                    startActivity(volverRegistro);
+                    Toast.makeText(AgendaCitasMedicas.this, "Debes registrarte para acceder a esta función", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+
+            constraint3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent volverRegistro = new Intent(AgendaCitasMedicas.this, registro_perfil.class);
+                    startActivity(volverRegistro);
+                    Toast.makeText(AgendaCitasMedicas.this, "Debes registrarte para acceder a esta función", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            });
+        }
+
         constraint4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,14 +104,13 @@ public class AgendaCitasMedicas extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menuAyuda) {
        getMenuInflater().inflate(R.menu.menu, menuAyuda);
+       menuAyuda.findItem(R.id.opcion_desconexion).setVisible(Sesion.getInstance().isIniciada());
        return true;
     }
 
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        //Toast.makeText(this, "Esta aplicación ha sido desarrollada por Sergio Lorenzo para Citas médicas", Toast.LENGTH_SHORT).show();
 
         switch (item.getItemId()){
             case R.id.opcion_ayuda:
@@ -95,7 +131,10 @@ public class AgendaCitasMedicas extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        desconexion();
+        if(Sesion.getInstance().isIniciada())
+            desconexion();
+        else
+            super.onBackPressed();
     }
 
     public void MostrarMensajeAyudaApp(){

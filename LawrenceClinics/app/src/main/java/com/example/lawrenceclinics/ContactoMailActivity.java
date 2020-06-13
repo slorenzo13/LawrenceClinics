@@ -38,7 +38,7 @@ public class ContactoMailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String correoCliente = CorreoCliente.getText().toString().trim(); //.trim elimina los espacios en blanco antes y despues del texto
+                String correoCliente = CorreoCliente.getText().toString().trim(); //.trim elimina los espacios en blanco antes y después del texto
                 String AsuntoMail = AsuntoContacto.getText().toString().trim();
                 String DescripcionMensaje = DescripcionMensajeContacto.getText().toString().trim();
 

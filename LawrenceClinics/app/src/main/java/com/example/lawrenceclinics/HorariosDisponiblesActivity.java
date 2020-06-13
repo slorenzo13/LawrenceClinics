@@ -36,11 +36,12 @@ public class HorariosDisponiblesActivity extends AppCompatActivity implements Ho
 
     private int año, mes, dia;
 
+    private RecyclerView listaHorarios;
+    private ApiClinica api;
+
     private Button BotonSeleccionarFecha;
     private EditText MostrarFecha;
     private Spinner selectorDoctor;
-    private RecyclerView listaHorarios;
-    private ApiClinica api;
 
     public static final String ESPECIALIDAD_ID = "ESPECIALIDAD";
     public static final String ESPECIALIDAD_NOMBRE = "ESPECIALIDADN";
@@ -164,14 +165,15 @@ public class HorariosDisponiblesActivity extends AppCompatActivity implements Ho
 
     @Override
     public void onHorarioDisponibleClick(HorarioDisponible h) {
-       Intent intentoHora6 = new Intent(HorariosDisponiblesActivity.this, VerificarCita.class);
-        intentoHora6.putExtra(VerificarCita.ESPECIALIDAD,especialidad);
-        intentoHora6.putExtra(VerificarCita.DOCTOR_ID,idDoctor);
-        intentoHora6.putExtra(VerificarCita.DOCTOR_NOMBRE,selectorDoctor.getSelectedItem().toString());
-        intentoHora6.putExtra(VerificarCita.FECHA,MostrarFecha.getText().toString());
-        intentoHora6.putExtra(VerificarCita.HORARIO,h.horarioFormateado());
-        intentoHora6.putExtra(VerificarCita.HORARIO_ID,h.getId());
-        startActivity(intentoHora6);
+        Intent intentoHoraDisponible = new Intent(HorariosDisponiblesActivity.this, VerificarCita.class);
+        intentoHoraDisponible.putExtra(VerificarCita.ESPECIALIDAD,especialidad);
+        intentoHoraDisponible.putExtra(VerificarCita.DOCTOR_ID,idDoctor);
+        intentoHoraDisponible.putExtra(VerificarCita.DOCTOR_NOMBRE,selectorDoctor.getSelectedItem().toString());
+        intentoHoraDisponible.putExtra(VerificarCita.FECHA,MostrarFecha.getText().toString());
+        intentoHoraDisponible.putExtra(VerificarCita.HORARIO,h.horarioFormateado());
+        intentoHoraDisponible.putExtra(VerificarCita.HORARIO_ID,h.getId());
+
+        startActivity(intentoHoraDisponible);
     }
 
 }

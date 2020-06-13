@@ -91,18 +91,7 @@ public class RestablecerPassword extends AppCompatActivity {
 
             }
         });
-//        auth.setLanguageCode("es"); //le asigno el idioma en el que quiero que le llegue el correo de restablecer contraseña
-//        auth.sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
-//            @Override
-//            public void onComplete(@NonNull Task<Void> task) {
-//                if(task.isSuccessful()){
-//                    Toast.makeText(RestablecerPassword.this, "Se ha enviado un correo para restablecer la contraseña", Toast.LENGTH_SHORT).show();
-//                }
-//                else{
-//                    Toast.makeText(RestablecerPassword.this, "No se ha podido enviar el correo para restablecer la contraseña", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        });
+
     }
 
     @Override

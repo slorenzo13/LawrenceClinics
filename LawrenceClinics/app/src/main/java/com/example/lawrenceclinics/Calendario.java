@@ -18,9 +18,7 @@ public class Calendario extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_calendario);
 
-        //txtv = findViewById(R.id.textViewCalendario);
         calendario = Calendar.getInstance();
 
         day = calendario.get(Calendar.DAY_OF_MONTH);

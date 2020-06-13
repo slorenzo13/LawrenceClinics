@@ -1,14 +1,12 @@
-
 package com.example.lawrenceclinics.api.respuestas;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class UltimaCita_Modificar {
-
+public class AnularCitaPendiente {
     @SerializedName("datos")
     @Expose
-    private Datos datos;
+    private String datos;
     @SerializedName("error")
     @Expose
     private boolean error;
@@ -16,11 +14,11 @@ public class UltimaCita_Modificar {
     @Expose
     private String errorMsg;
 
-    public Datos getDatos() {
+    public String getDatos() {
         return datos;
     }
 
-    public void setDatos(Datos datos) {
+    public void setDatos(String datos) {
         this.datos = datos;
     }
 
@@ -39,5 +37,4 @@ public class UltimaCita_Modificar {
     public void setErrorMsg(String errorMsg) {
         this.errorMsg = errorMsg;
     }
-
 }

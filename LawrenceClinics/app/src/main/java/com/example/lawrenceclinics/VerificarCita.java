@@ -33,16 +33,9 @@ public class VerificarCita extends AppCompatActivity {
     public static final String HORARIO_ID = "HORARIOI";
     private Button verificarCita;
     private TextView especialidad, doctor, fecha, horario;
-    private GeneradorPDF generadorPDF;
     private ApiClinica apiClinica;
     private SimpleDateFormat dateFormatInicio = new SimpleDateFormat("dd/MM/yyyy");
     private SimpleDateFormat dateFormatFin = new SimpleDateFormat("yyyy-MM-dd");
-
-    private TemplatePDF templatePDF;
-
-   /* private String[]header={"id", "Especialidad", "Doctor", "Fecha", "Hora"};
-    private String textoCorto = "Hola";
-    private String textoLargo = "Tu salud es lo más importante";*/
 
 
     @Override
@@ -51,15 +44,6 @@ public class VerificarCita extends AppCompatActivity {
         setContentView(R.layout.activity_verificar_cita);
 
         apiClinica = ServicioRetrofit.generarApi();
-
-       /* templatePDF = new TemplatePDF(getApplicationContext());
-        templatePDF.openDocument();
-        templatePDF.addMetaData("Usuarios", "Cita", "Lawrence Clinics");
-        templatePDF.addTitle("Lawrence Clinics", "Usuarios", "17/12/2019");
-        templatePDF.createTable(header, getCita());
-        templatePDF.addParagraph(textoCorto);
-        templatePDF.addParagraph(textoLargo);
-        templatePDF.closeDocument();*/
 
         especialidad = findViewById(R.id.resultadoEspecialidad_agendado);
         doctor = findViewById(R.id.resultadoDoctor_agendado);
@@ -80,19 +64,15 @@ public class VerificarCita extends AppCompatActivity {
 
         verificarCita = findViewById(R.id.BotonAgendarCita);
 
-        generadorPDF = new GeneradorPDF();
-
         verificarCita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //VerificarCita();
-                //templatePDF.viewPDF();
+
                 String tEspecialidad = especialidad.getText().toString();
                 String tDoctor = doctor.getText().toString();
                 String tFecha = fecha.getText().toString();
                 String tHorario = horario.getText().toString();
                 Cita cita = new Cita(tEspecialidad, tDoctor,tFecha,tHorario);
-                File pdfCita = generadorPDF.imprimirComprobante(cita,getFilesDir());
 
                 Date formatoInicio = null;
                 try {
@@ -126,40 +106,5 @@ public class VerificarCita extends AppCompatActivity {
             }
         });
     }
-
-    /*public void VerificarCita() {
-        ProgressDialog barraCargaRegistro = new ProgressDialog(this);
-        barraCargaRegistro.setTitle("Verificar");
-        barraCargaRegistro.setMessage("Verificando la disponibilidad...");
-        barraCargaRegistro.setCancelable(true);
-        barraCargaRegistro.show();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-
-                } catch (Exception ex) {
-                    Toast.makeText(VerificarCita.this, "ERROR", Toast.LENGTH_SHORT).show();
-                    ex.printStackTrace();
-                }
-            }
-        });
-    }*/
-
-   /* public void pdfView(View vista){
-        templatePDF.viewPDF();
-    }
-
-    private ArrayList<String[]>getCita(){
-        ArrayList<String[]>rows = new ArrayList<>();
-        rows.add(new String[]{"1", "Traumatologia", "Sergio Lopez", "17/12/2019", "15:05"});
-        rows.add(new String[]{"2", "Cardiologia", "Antonio Sauras", "23/10/2019", "10:30"});
-        rows.add(new String[]{"3", "Obstetricia", "Laura Perez", "05/02/2019", "17:35"});
-        rows.add(new String[]{"4", "Pediatria", "Maria Moreno", "20/04/2019", "18:00"});
-
-        return rows;
-    }*/
 
 }
